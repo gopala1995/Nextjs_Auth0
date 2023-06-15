@@ -2,10 +2,11 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
 import React from "react";
 import Profile from "./Profile";
+import Link from "next/link";
 
 const Navbar = () => {
   const { isLoading, user, error } = useUser();
-  console.log(user);
+  // console.log(user.name);
   return (
     <div>
       <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
@@ -17,12 +18,12 @@ const Navbar = () => {
           <div >
             {!isLoading && !user && (
               <div>
-                <a
+                <Link
                   href="/api/auth/login"
                   class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white hover:rounded-md rounded-lg shadow-xl mx-2"
                 >
                   Login
-                </a>
+                </Link>
               </div>
             )}
             {user && (
@@ -35,18 +36,18 @@ const Navbar = () => {
                   />
                 </button>
                 <div className=" py-2 w-48">
-                  <a
+                  <Link
                     href="/api/auth/me"
                     className=" px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white hover:rounded-md rounded-lg shadow-xl mx-2"
                   >
                     Profile
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/api/auth/logout"
                     className=" px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white hover:rounded-md rounded-lg shadow-xl "
                   >
                     Log out
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}

@@ -6,7 +6,7 @@ const Profile = () => {
   return (
     <>
       {isLoading && (
-        <p className="w-1/4 text-center m-auto text-4xl mt-[200px]">
+        <p className="w-1/4 text-center m-auto text-yellow-600  text-4xl mt-[200px]">
           Loading.......
         </p>
       )}
